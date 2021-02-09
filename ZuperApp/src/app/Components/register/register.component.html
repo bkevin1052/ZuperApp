@@ -1,3 +1,26 @@
-<p>
-  register works!
-</p>
+<div style="width: 100%; background-image: linear-gradient(rgb(255, 174, 0),rgba(240, 229, 229, 0.568));padding-top: 100px; padding-bottom: 100px;">
+
+  <div class="card" style="width: 20%; margin-left: auto; margin-right: auto;">
+      <div class="card-body">
+          <form class="form-register" (ngSubmit)="register()">
+              <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 50%;" class="center">
+              <br>
+              <br>
+              <label for="inputUserName" class="sr-only">UserName</label>
+              <input type="username" formControlName="username" id="inputUserName" class="form-control" placeholder="Username"  autofocus="">
+              <br>
+              <label for="inputPassword" class="sr-only">Password</label>
+              <input type="password" formControlName="password" id="inputPassword" class="form-control" placeholder="Password" >
+              <br>
+              <label for="inputConfirmPassword" class="sr-only">Confirm Password</label>
+              <input type="password" formControlName="password" id="inputConfirmPassword" class="form-control" placeholder="Confirm Password" >
+              <br>
+              <label for="inputEmail" class="sr-only">Email</label>
+              <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email" >
+              <br>
+              <button class="btn btn-lg btn-info btn-block" stlye="button" type="submit" id="bRegister">Register</button>
+              <p style="text-align: center;" class="mt-5 mb-3 text-muted">© 2021</p>
+          </form>
+      </div>
+  </div>
+</div>
