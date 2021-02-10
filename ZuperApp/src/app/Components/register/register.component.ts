@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
+
 
 @Component({
   selector: 'app-register',
@@ -10,7 +12,8 @@ export class RegisterComponent implements OnInit {
 
   constructor(
 
-    private router: Router
+    private router: Router,
+    private fb: FormBuilder
 
   ) { }
 
@@ -18,9 +21,8 @@ export class RegisterComponent implements OnInit {
   }
 
   register(){
-
-    this.router.navigate(['login']);
-
+    alert("Registro enviado correctamente");
+    this.router.navigateByUrl('/login')
   }
 
 }

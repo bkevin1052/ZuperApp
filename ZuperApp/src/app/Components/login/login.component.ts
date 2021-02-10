@@ -18,14 +18,6 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  register(){
-    this.router.navigate(['/register']);
-  }
-
-  forgotpassword(){
-    this.router.navigate(['/forgotpassword']);
-  }
-
   ngOnInit() {
   }
 }
