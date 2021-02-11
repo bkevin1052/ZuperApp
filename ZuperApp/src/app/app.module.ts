@@ -5,21 +5,21 @@ import { AppComponent } from './app.component';
 import { LoginModule } from "./Components/login/login.module";
 import { ForgotPasswordComponent } from "./Components/forgotpassword/forgotpassword.component";
 import { RegisterComponent } from "./Components/register/register.component";
-import { HomeComponent } from "./Components/home/home.component";
+import { ClientRoutingModule } from './Components/client/client-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ForgotPasswordComponent,
-    RegisterComponent,
-    HomeComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    LoginModule
+    LoginModule,
+    ClientRoutingModule
   ],
   providers: [],
   bootstrap: [AppComponent]

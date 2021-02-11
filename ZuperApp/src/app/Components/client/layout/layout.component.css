@@ -1,0 +1,19 @@
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 10000;
+    background-color: #EE8700;
+}
+
+.navbar {
+    background-color: #EE8700 !important;
+    box-shadow: 0px 1px 2px 0px #EE8700, 0px 2px 6px 2px
+}
+
+.footer p {
+    color: aliceblue;
+    color:black;
+}
+
