@@ -1,0 +1,16 @@
+.imagenperfil{
+    width:200px;
+    height:200px;
+    border-radius:125px;
+    border:10px solid #666;
+    float: inherit;
+    margin-left: 10%;
+}
+.fileInput {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}

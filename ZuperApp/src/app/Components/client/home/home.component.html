@@ -1,1 +1,17 @@
-<p> Home Works</p>
+<div class="row mb-5">
+  <div class="col-12 text-center">
+      <p class="m-0 titulo">Servicios Disponibles</p>
+  </div>
+  <div class="col-lg-4 col-12 mt-5" *ngFor="let s of servicios">
+
+      <div class="card">
+          <div class="btn-circle bg-handy">
+              <img class="card-img-top" src={{getFoto(s)}}>
+          </div>
+          <div class="card-body">
+              <h2 class="card-title">{{ s.nombre }}</h2>
+              <a routerLink="" class="btn btn-info">Ver servicio</a>
+          </div>
+      </div>
+  </div>
+</div>
