@@ -9,11 +9,11 @@
 }
 
 .bg-zuper {
-    background-color: #EE8700;
+    background-color: #f7ce98;
 }
 
 .btn-info {
-    background-color: #EE8700 !important;
+    background-color:#EE8700 !important;
     border: none !important;
     color: black;
 }
@@ -37,6 +37,10 @@ body {
 
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-services {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  text-align: center;
 }
 
 .tabla {
