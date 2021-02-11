@@ -1,0 +1,22 @@
+.fotoHandler {
+    width: 10rem;
+    height: 10rem;
+    object-fit: cover;
+}
+
+.contenedorServicios {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.servicio {
+    background-color: #02BBD2;
+    color: white;
+    font-weight: bold;
+}
+
+.card {
+    width: 40% !important;
+    margin: auto !important;
+
+}
