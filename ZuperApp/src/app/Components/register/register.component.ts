@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 
 
 @Component({
@@ -10,6 +10,8 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 })
 export class RegisterComponent implements OnInit {
 
+  form_register!:FormGroup;
+
   constructor(
 
     private router: Router,
@@ -17,12 +19,27 @@ export class RegisterComponent implements OnInit {
 
   ) { }
 
-  ngOnInit() {
-  }
-
   register(){
     alert("Registro enviado correctamente");
-    this.router.navigateByUrl('/login')
+    this.router.navigate(['/login']);
   }
 
+  ngOnInit() {
+
+    this.form_register = this.fb.group({
+      username: ['', [
+        Validators.required
+      ]],
+      password: ['', [
+        Validators.required
+      ]],
+      confirmPassword: ['', [
+        Validators.required
+      ]],
+      email: ['', [
+        Validators.required,
+        Validators.pattern("[^ @]*@[^ @]*")
+      ]]
+    })
+  }
 }

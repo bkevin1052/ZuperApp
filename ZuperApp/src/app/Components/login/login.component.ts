@@ -9,6 +9,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  form_login!:FormGroup;
+
   constructor(
     private fb: FormBuilder,
     private router: Router
@@ -18,6 +20,15 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/home']);
   }
 
-  ngOnInit() {
+  ngOnInit():void {
+    this.form_login = this.fb.group({
+      email: ['', [
+        Validators.required,
+        Validators.pattern("[^ @]*@[^ @]*")
+      ]],
+      password: ['', [
+        Validators.required
+      ]]
+    })
   }
 }
