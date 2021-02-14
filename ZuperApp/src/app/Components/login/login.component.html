@@ -1,7 +1,7 @@
 <div class="bg"></div>
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
-  <div class="card content" style="width: 50%; margin-left: auto; margin-right: auto;">
+  <div class="card content" style="width: 70%; margin-left: auto; margin-right: auto;">
       <div class="card-body">
           <form  [formGroup]="form_login" class="form-signin" (ngSubmit)="login()">
               <img class="center" src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 50%;">
@@ -12,8 +12,12 @@
               <input type="password" formControlName="password" id="Password" class="form-control" placeholder="Password" required="">
               <br>
               <button type="submit" id="bLogIn" class="btn btn-warning btn-lg btn-block">Log In</button>
-              <br>
-              <a routerLink="/register">Sign Up</a>
+              <hr>
+              <button  type="submit" id="bGoogle"  class="btn btn-danger btn-lg mr-3"> <img src="icons/close.png" />Google</button>
+              <i class="fab fa-facebook"></i>
+              <button type="submit" id="bFacebook" class="btn btn-primary btn-lg  btn-facebook">Facebook</button>
+              <hr>
+              <a routerLink="/register">Create an Account!</a>
               <br>
               <a routerLink="/forgotpassword">Forgot Password?</a>
               <p style="text-align: center" class="mt-5 mb-3 text-muted">© 2021</p>

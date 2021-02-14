@@ -1,10 +1,10 @@
 .imagenperfil{
-    width:200px;
-    height:200px;
+    width:150px;
+    height:150px;
     border-radius:125px;
     border:10px solid #666;
     float: inherit;
-    margin-left: 10%;
+    margin-left: 40%;
 }
 .fileInput {
     width: 0.1px;
