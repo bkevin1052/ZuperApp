@@ -1,3 +1,22 @@
-<p>
-  send-list works!
-</p>
+<form [formGroup]="form_send" class="form-send" (ngSubmit)="SendList()" id="form_send">
+<div class="form-group">
+  <h1> Send List:</h1>
+  <select class="form-control form-control-lg" formControlName="list">
+    <option>Lista 1</option>
+    <option>Lista 2</option>
+    <option>Lista 3</option>
+    <option>Lista 4</option>
+    <option>Lista 5</option>
+  </select>
+</div>
+<h1> Enviar A:</h1>
+<select multiple class="form-control form-control-lg" formControlName="enviar">
+  <option>bkevin1052@gmail.com</option>
+  <option>bkevin102@gmail.com</option>
+  <option>bkevin1022@gmail.com</option>
+  <option>bkevin12@gmail.com</option>
+  <option>bkevin2@gmail.com</option>
+</select>
+<br>
+<button type="submit" class="btn btn-lg btn-success" id="bSend">Send List</button>
+</form>

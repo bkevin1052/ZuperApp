@@ -1,3 +1,15 @@
-<p>
-  edit-list works!
-</p>
+<form [formGroup]="form_edit" class="form-edit" (ngSubmit)="EditList()" id="form_edit">
+<div class="form-group">
+  <h1> List Select:</h1>
+  <select class="form-control form-control-lg" formControlName="list">
+    <option>Lista 1</option>
+    <option>Lista 2</option>
+    <option>Lista 3</option>
+    <option>Lista 4</option>
+    <option>Lista 5</option>
+  </select>
+</div>
+<br>
+<button type="submit" class="btn btn-lg btn-success" id="bEdit">Edit List</button>
+</form>
+
