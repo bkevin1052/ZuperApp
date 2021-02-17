@@ -27,7 +27,6 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   resetPassword(){
-    alert("Email send correctly for reset password.");
     this.router.navigate(['/login']);
   }
 

@@ -20,7 +20,6 @@ export class RegisterComponent implements OnInit {
   ) { }
 
   register(){
-    alert("Success sending registration");
     this.router.navigate(['/login']);
   }
 

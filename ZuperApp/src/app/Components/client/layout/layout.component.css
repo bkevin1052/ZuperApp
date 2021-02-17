@@ -50,12 +50,13 @@ body {
 }
 
 .footer {
-    position: fixed;
-    bottom: 0;
-    right: 0;
-    left: 0;
-    z-index: 10000;
-    background-color: #EE8700;
+  position: fixed;
+  height: 40px;
+  background-color: #EE8700;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin-bottom: 0px;
 }
 
 .navbar {
