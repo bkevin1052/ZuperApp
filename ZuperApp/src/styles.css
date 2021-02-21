@@ -4,14 +4,6 @@
     color: #EE8700;
 }
 
-.imagenperfil{
-  width:150px;
-  height:150px;
-  border-radius:125px;
-  border:10px solid #666;
-  float: inherit;
-}
-
 .thead-zuper {
     background-color: mediumaquamarine !important;
 }

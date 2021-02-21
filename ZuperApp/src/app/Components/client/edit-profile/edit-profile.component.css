@@ -2,7 +2,7 @@
     width:150px;
     height:150px;
     border-radius:125px;
-    border:10px solid #666;
+    border:2px solid rgb(61, 181, 236);
     float: inherit;
 }
 .fileInput {
