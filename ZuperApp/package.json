@@ -26,7 +26,8 @@
     "angular-fontawesome": "^1.0.0",
     "canvasjs": "^1.8.3",
     "chart.js": "^2.9.4",
-    "rxjs": "~6.6.0",
+    "rxjs": "^6.6.7",
+    "rxjs-compat": "^6.3.3",
     "tslib": "^2.0.0",
     "zone.js": "~0.11.3"
   },

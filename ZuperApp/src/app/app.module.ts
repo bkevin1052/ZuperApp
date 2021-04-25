@@ -7,6 +7,9 @@ import { ForgotPasswordComponent } from "./Components/forgotpassword/forgotpassw
 import { RegisterComponent } from "./Components/register/register.component";
 import { ClientRoutingModule } from './Components/client/client-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { AuthService } from './Components/services/auth/auth.service';
+import { AuthGuard } from './Components/services/auth/auth.guard';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -19,9 +22,10 @@ import { ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     ReactiveFormsModule,
     LoginModule,
-    ClientRoutingModule
+    ClientRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
