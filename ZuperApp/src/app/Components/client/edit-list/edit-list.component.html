@@ -1,15 +1,35 @@
-<form [formGroup]="form_edit" class="form-edit" (ngSubmit)="EditList()" id="form_edit">
-<div class="form-group">
-  <h1> List Select:</h1>
-  <select class="form-control form-control-lg" formControlName="list">
-    <option>Lista 1</option>
-    <option>Lista 2</option>
-    <option>Lista 3</option>
-    <option>Lista 4</option>
-    <option>Lista 5</option>
-  </select>
-</div>
-<br>
-<button type="submit" class="btn btn-lg btn-success" id="bEdit">Edit List</button>
-</form>
+<div class="container">
+  <div class="row">
+      <div class="col">
+          <h1 class="titulo text-center">Item Lists</h1>
+          <table class="table table-striped tabla">
+              <!--Encabezados de la tabla-->
+              <thead class="thead-zuper">
+                  <tr>
 
+                      <th class=" text-center" scope="col">Name</th>
+
+                      <th class=" text-center" scope="col">Description</th>
+
+                      <th class=" text-center" scope="col">Items</th>
+
+                  </tr>
+              </thead>
+
+              <!--CONTENIDO-->
+              <tr class="tr-zuper" *ngFor="let servicio of servicios">
+
+                  <td class="text-center">{{cookie.namelist}}</td>
+                  <td class="text-center">{{cookie.description}}</td>
+                  <td class="text-center">
+
+                    <a [routerLink]="['/Client/Historial/VerServicio',cookie._id]" class="btn btn-info btn-xs">
+                        <i class="fa fa-search"></i>
+                    </a>
+                  </td>
+
+              </tr>
+          </table>
+      </div>
+  </div>
+</div>

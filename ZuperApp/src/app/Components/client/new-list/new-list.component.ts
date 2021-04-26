@@ -1,3 +1,4 @@
+import { CreateList } from './../../services/NewList/new-list.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -10,22 +11,14 @@ import { Router } from '@angular/router';
 export class NewListComponent implements OnInit {
 
 
-  form_nueva!:FormGroup;
+  form_nueva:FormGroup;
 
   constructor(
 
     private fb:FormBuilder,
-    private router: Router
-  ) { }
-
-  CrearLista(){
-
-    alert("Lista creada");
-    this.router.navigate(['/home']);
-
-  }
-
-  ngOnInit() {
+    private router: Router,
+    private APIService:CreateList
+  ) {
 
     this.form_nueva = this.fb.group({
       name: ['', [
@@ -35,6 +28,41 @@ export class NewListComponent implements OnInit {
         Validators.required
       ]]
     })
+
+   }
+
+  CrearLista(){
+
+    console.log(this.form_nueva.controls.name.value);
+    console.log(this.form_nueva.controls.description.value);
+
+
+    let formData = new FormData();
+    let username =  localStorage.getItem('username');
+    if(username){
+        //Solicitud a la API
+
+        formData.append('name',this.form_nueva.controls.name.value);
+        formData.append('description',this.form_nueva.controls.description.value);
+        formData.append('username',username);
+        console.log(formData)
+        this.APIService.crearLista(formData).subscribe((data)=>{
+
+      ///Accion que muestra que fue enviado correctamente
+        console.log(data)
+        this.router.navigate(['/Edit-List']);
+        return;
+
+        },
+        (error: any) => {
+             alert(error);
+            return;
+        });
+    }else{
+      alert('Error al crear Lista, por favor intentar nuevamente.');
+    }
   }
 
+  ngOnInit() {
+  }
 }

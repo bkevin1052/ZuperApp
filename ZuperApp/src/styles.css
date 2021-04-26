@@ -5,7 +5,12 @@
 }
 
 .thead-zuper {
-    background-color: mediumaquamarine !important;
+    background-color: rgb(111, 134, 221) !important;
+}
+
+.tr-zuper {
+  background-color: rgb(170, 186, 230) !important;
+  font-weight:bold;
 }
 
 .bg-zuper {
