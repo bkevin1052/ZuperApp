@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  server: "https://backend-zuperapp.herokuapp.com/"
+  server: "https://backend-zuperapp.herokuapp.com"
 };
 
 
