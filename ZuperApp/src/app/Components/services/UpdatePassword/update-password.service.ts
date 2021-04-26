@@ -7,12 +7,12 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class CreateUser {
+export class UpdatePassword {
 
   constructor(private httpClient: HttpClient) { }
 
-  crearUsuario(formulario: any): Observable<any> {
-    return this.httpClient.post(`${environment.server}/api/register`,formulario).pipe(catchError(this.clientError));
+  ActualizarPassword(formulario: any): Observable<any> {
+    return this.httpClient.post(`${environment.server}/api/updatePassword`,formulario).pipe(catchError(this.clientError));
   }
 
   clientError(error: HttpErrorResponse) {

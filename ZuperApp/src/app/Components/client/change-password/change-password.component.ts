@@ -1,3 +1,4 @@
+import { UpdateProfilePassword } from './../../services/UpdateProfilePassword/update-profile-password.service';
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
@@ -14,12 +15,47 @@ export class ChangePasswordComponent implements OnInit {
   imagenresource = 'https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png';
 
   constructor(private fb:FormBuilder,
-    private route:Router) {
+    private APIService:UpdateProfilePassword,private route:Router) {
 
   }
 
   cambioPassword() {
-      this.route.navigateByUrl('home');
+
+    let formData = new FormData();
+    let username =  localStorage.getItem('username');
+    if(username){
+    formData.append('username',username);
+    formData.append('inputPassword',this.form_cambiocontrasenia.controls.inputPassword.value);
+    formData.append('inputNewPassword',this.form_cambiocontrasenia.controls.inputNewPassword.value);
+    formData.append('inputConfirmPassword',this.form_cambiocontrasenia.controls.inputConfirmPassword.value);
+    console.log(formData)
+
+    var pass = this.form_cambiocontrasenia.controls.inputNewPassword.value;
+    var Confpass = this.form_cambiocontrasenia.controls.inputConfirmPassword.value;
+
+    if(pass = Confpass){
+
+      this.APIService.ActualizarProfilePassword(formData).subscribe( (res)=>{
+        console.log(res)
+        if(res.codigo == '201'){
+          this.route.navigate(['./login']);
+          alert(res.mensaje)
+        }else{
+
+          alert(res.mensaje)
+        }
+
+        });
+        this.route.navigateByUrl('home');
+
+    }else{
+
+      alert('Contraseñas diferentes,favor verificar.');
+    }
+    }else{
+
+      alert('Error en la actualizacion');
+    }
   }
 
   ngOnInit(): void {

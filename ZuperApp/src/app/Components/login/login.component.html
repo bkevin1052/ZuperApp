@@ -3,15 +3,15 @@
 <div class="bg bg3"></div>
   <div class="card content" style="width: 70%; margin-left: auto; margin-right: auto;">
       <div class="card-body">
-          <form  [formGroup]="form_login" class="form-signin" (ngSubmit)="login()">
+          <form  [formGroup]="form_login" class="form-signin">
               <img class="center" src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 50%;">
               <br>
-              <label for="inputEmail" class="sr-only">Email</label>
-              <input type="email" formControlName="email" id="Email" class="form-control" placeholder="Email" required="" autofocus="">
+              <label for="inputUsername" class="sr-only">Email</label>
+              <input type="username" formControlName="username" id="Username" class="form-control" placeholder="Username" required="" autofocus="">
               <label for="inputPassword" class="sr-only">Password</label>
               <input type="password" formControlName="password" id="Password" class="form-control" placeholder="Password" required="">
               <br>
-              <button type="submit" id="bLogIn" class="btn btn-warning btn-lg btn-block">Log In</button>
+              <button id="bLogIn" class="btn btn-warning btn-lg btn-block" (click)="login()">Log In</button>
               <hr>
               <div class="center">
               <button  type="submit" id="bGoogle"  class="btn btn-danger btn-lg mr-3">

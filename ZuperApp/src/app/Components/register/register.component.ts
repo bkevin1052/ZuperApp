@@ -15,15 +15,41 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private APIService:CreateUser,private route:Router ) { }
+    private APIService:CreateUser,private route:Router
+    ) {
+
+      this.form_register = this.fb.group({
+        username: ['', [
+          Validators.required
+        ]],
+        password: ['', [
+          Validators.required
+        ]],
+        confirmPassword: ['', [
+          Validators.required
+        ]],
+        email: ['', [
+          Validators.required,
+          Validators.pattern("[^ @]*@[^ @]*")
+        ]],
+        name: ['', [
+          Validators.required,
+        ]],
+        surname: ['', [
+          Validators.required,
+        ]],
+        phone: ['', [
+          Validators.required,
+        ]]
+      })
+
+    }
 
   register(){
-    console.log(this.form_register.controls.Contrasenia.value);
-    console.log(this.form_register.controls.ConfirmPassword.value);
-    var pass  = this.form_register.controls.Contrasenia.value;
-    var Confpass = this.form_register.controls.ConfirmPassword.value;
-
-
+    console.log(this.form_register.controls.password.value);
+    console.log(this.form_register.controls.confirmPassword.value);
+    var pass  = this.form_register.controls.password.value;
+    var Confpass = this.form_register.controls.confirmPassword.value;
 
     if(pass == Confpass){
 
@@ -51,29 +77,6 @@ export class RegisterComponent implements OnInit {
 
   ngOnInit() {
 
-    this.form_register = this.fb.group({
-      username: ['', [
-        Validators.required
-      ]],
-      password: ['', [
-        Validators.required
-      ]],
-      confirmPassword: ['', [
-        Validators.required
-      ]],
-      email: ['', [
-        Validators.required,
-        Validators.pattern("[^ @]*@[^ @]*")
-      ]],
-      name: ['', [
-        Validators.required,
-      ]],
-      surname: ['', [
-        Validators.required,
-      ]],
-      phone: ['', [
-        Validators.required,
-      ]]
-    })
   }
+
 }

@@ -21,7 +21,8 @@ export class AuthService {
 
       tap(async (res: any) => {
         if (res) {
-          localStorage.setItem("user", JSON.stringify(res.username[0]));
+          localStorage.setItem("username", res.username);
+          console.log(localStorage.getItem('username'));
           this.authSubject.next(true);
           return res;
         }

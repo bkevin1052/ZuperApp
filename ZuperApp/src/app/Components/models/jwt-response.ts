@@ -1,4 +1,6 @@
 export interface JwtResponse {
-  Token: string;
-  usernmae: string;
+  token: string;
+  username: string;
+  mensaje: string;
+  codigo: string;
 }
