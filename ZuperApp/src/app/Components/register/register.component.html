@@ -5,8 +5,6 @@
       <div class="card-body">
         <br>
           <form [formGroup]="form_register"  class="form-register">
-            <div class="container">
-              <div class="row">
 
               <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 50%;" class="center">
 
@@ -31,17 +29,16 @@
               <label for="inputEmail" class="sr-only">Email</label>
               <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email" >
 
-            </div>
-          </div>
+              <br>
+              <hr>
+              <a routerLink="/forgotpassword">Forgot Password?</a>
+              <br>
+              <a routerLink="/login">Already have an account? Login!</a>
+              <hr>
+              <button id="bRegister" class="btn btn-warning btn-lg btn-block" (click)="register()">Register</button>
+              <p style="text-align:center" class="mt-5 mb-3 text-muted">© 2021</p>
+
           </form>
-          <br>
-          <hr>
-          <a routerLink="/forgotpassword">Forgot Password?</a>
-          <br>
-          <a routerLink="/login">Already have an account? Login!</a>
-          <hr>
-          <button id="bRegister" class="btn btn-success btn-lg btn-block" (click)="register()">Register</button>
-          <p style="text-align:center" class="mt-5 mb-3 text-muted">© 2021</p>
       </div>
   </div>
 
