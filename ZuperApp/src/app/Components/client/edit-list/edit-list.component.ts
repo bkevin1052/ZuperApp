@@ -13,7 +13,7 @@ export class EditListComponent implements OnInit {
 
   form_edit:FormGroup;
 
-  cookie!: List;
+  cookie!:List[];
 
   constructor(
 
@@ -38,14 +38,9 @@ export class EditListComponent implements OnInit {
   EditList(){
   }
 
-  servicios:[];
-
-
   getListas(){
     this.api.getListas({username:localStorage.getItem('username')}).subscribe((data)=>{
-      this.servicios = data;
       this.cookie = data;
-      console.log(this.servicios);
       console.log(this.cookie);
      })
  }

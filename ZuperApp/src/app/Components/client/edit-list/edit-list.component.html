@@ -13,18 +13,27 @@
 
                       <th class=" text-center" scope="col">Items</th>
 
+                      <th class=" text-center" scope="col"></th>
+
                   </tr>
               </thead>
 
               <!--CONTENIDO-->
-              <tr class="tr-zuper" *ngFor="let servicio of servicios">
+              <tr class="tr-zuper" *ngFor="let cook of cookie">
 
-                  <td class="text-center">{{cookie.namelist}}</td>
-                  <td class="text-center">{{cookie.description}}</td>
+                  <td class="text-center">{{cook.namelist}}</td>
+                  <td class="text-center">{{cook.description}}</td>
                   <td class="text-center">
 
-                    <a [routerLink]="['/Client/Historial/VerServicio',cookie._id]" class="btn btn-info btn-xs">
+                    <a [routerLink]="['/Client/Historial/VerServicio',cook._id]" class="btn btn-info btn-xs">
                         <i class="fa fa-search"></i>
+                    </a>
+                  </td>
+
+                  <td class="text-center">
+
+                    <a [routerLink]="['/Client/Historial/VerServicio',cook._id]" class="btn btn-info btn-xs">
+                        <i class="fa fa-trash"></i>
                     </a>
                   </td>
 
