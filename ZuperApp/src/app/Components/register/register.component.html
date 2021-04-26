@@ -2,11 +2,11 @@
 <div class="bg bg2"></div>
 <div class="bg bg3"></div>
   <div class="card content" style="width: 70%; margin-left: auto; margin-right: auto;">
-      <div class="card-body">
-        <br>
+    <div class="card-body">
           <form [formGroup]="form_register"  class="form-register">
 
-              <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 50%;" class="center">
+              <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png" style="width: 40%;" class="center">
+              <br>
 
               <label for="inputUserName" class="sr-only">UserName</label>
               <input type="text" formControlName="username" id="inputUserName" class="form-control" placeholder="Username"  autofocus="">
@@ -28,8 +28,6 @@
 
               <label for="inputEmail" class="sr-only">Email</label>
               <input type="email" formControlName="email" id="inputEmail" class="form-control" placeholder="Email" >
-
-              <br>
               <hr>
               <a routerLink="/forgotpassword">Forgot Password?</a>
               <br>
@@ -37,7 +35,6 @@
               <hr>
               <button id="bRegister" class="btn btn-warning btn-lg btn-block" (click)="register()">Register</button>
               <p style="text-align:center" class="mt-5 mb-3 text-muted">© 2021</p>
-
           </form>
       </div>
   </div>
