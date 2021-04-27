@@ -7,16 +7,16 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
-export class EditList {
+export class ViewItems {
 
   constructor(private httpClient: HttpClient) { }
 
-  eliminarLista(formulario: any): Observable<any> {
-    return this.httpClient.post(`${environment.server}/api/lists/deletelist`,formulario).pipe(catchError(this.clientError));
+  editarLista(formulario: any): Observable<any> {
+    return this.httpClient.post(`${environment.server}/api/lists/editlist`,formulario).pipe(catchError(this.clientError));
   }
 
-  getListas(formulario: any): Observable<any> {
-    return this.httpClient.post(`${environment.server}/api/lists/getlists`,formulario).pipe(catchError(this.clientError));
+  getItems(formulario: any): Observable<any> {
+    return this.httpClient.post(`${environment.server}/api/lists/getitems`,formulario).pipe(catchError(this.clientError));
   }
 
   clientError(error: HttpErrorResponse) {

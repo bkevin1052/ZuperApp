@@ -1,7 +1,7 @@
 <div class="container">
   <div class="row">
       <div class="col">
-          <h1 class="titulo text-center">Item Lists</h1>
+          <h1 class="titulo text-center">Items</h1>
           <table class="table table-striped tabla">
               <!--Encabezados de la tabla-->
               <thead class="thead-zuper">
@@ -11,8 +11,6 @@
 
                       <th class=" text-center" scope="col">Description</th>
 
-                      <th class=" text-center" scope="col">Items</th>
-
                       <th class=" text-center" scope="col"></th>
 
                   </tr>
@@ -21,23 +19,8 @@
               <!--CONTENIDO-->
               <tr class="tr-zuper" *ngFor="let cook of cookie">
 
-                  <td class="text-center">{{cook.namelist}}</td>
+                  <td class="text-center">{{cook.name}}</td>
                   <td class="text-center">{{cook.description}}</td>
-                  <td class="text-center">
-
-                    <a [routerLink]="['/Client/VerItems',cook._id]" class="btn btn-info btn-xs">
-                        <i class="fa fa-search"></i>
-                    </a>
-                  </td>
-
-                  <td class="text-center">
-
-                    <button  class="btn btn-warning btn-xs" (click)="EliminarList(cook._id)" >
-
-                      <i class="fa fa-trash"></i>
-
-                    </button>
-                  </td>
 
               </tr>
           </table>

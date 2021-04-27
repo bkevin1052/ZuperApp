@@ -35,7 +35,20 @@ export class EditListComponent implements OnInit {
 
 
 
-  EditList(){
+  EliminarList(id:any){
+    console.log(id)
+    this.api.eliminarLista({_id:id}).subscribe((data)=>{
+
+      if(data.codigo = '100'){
+
+        alert(data.mensaje);
+        //this.router.navigate(['Edit-List']);
+        location.reload();
+      }else{
+
+        alert('Error al eliminar lista, por favor intentar nuevamente');
+      }
+     })
   }
 
   getListas(){

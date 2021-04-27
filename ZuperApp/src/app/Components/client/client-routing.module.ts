@@ -1,3 +1,4 @@
+import { ViewItemsComponent } from './view-items/view-items.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -24,6 +25,7 @@ const routes: Routes = [
     { path: 'New-List', component: NewListComponent},
     { path: 'Send-List', component: SendListComponent},
     { path: 'Services', component: ServicesComponent},
+    { path: 'VerItems/:id', component: ViewItemsComponent},
     { path: 'Configuration', component: ConfigurationComponent},
   ]
   }
