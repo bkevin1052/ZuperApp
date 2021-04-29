@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
-
+import  Swal  from 'sweetalert2';
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
@@ -42,12 +42,21 @@ export class ChangePasswordComponent implements OnInit {
       this.APIService.ActualizarProfilePassword(formData).subscribe( (res)=>{
         console.log(res)
         if(res.codigo == '201'){
-          alert(res.mensaje)
-          this.route.navigate(['./login']);
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: res.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          })
+          this.route.navigate(['./home']);
         }else{
-
-          alert(res.mensaje)
-          this.route.navigateByUrl('home');
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...Error en la actualización!',
+            text: res.mensaje,
+            footer: '<a href>Why do I have this issue?</a>'
+          })
         }
 
         });

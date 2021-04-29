@@ -5,6 +5,7 @@ import { AuthService } from "../services/auth/auth.service";
 import { User } from "../models/User";
 import { SocialAuthService } from 'angularx-social-login';
 import { SocialUser,GoogleLoginProvider,FacebookLoginProvider } from 'angularx-social-login';
+import  Swal  from 'sweetalert2';
 
 
 @Component({
@@ -57,6 +58,7 @@ export class LoginComponent implements OnInit {
 
   }
 
+
   SignInWithGoogle():any{
     this.authServiceGoogle.signIn(GoogleLoginProvider.PROVIDER_ID);
     this.authServiceGoogle.authState.subscribe((userGoogle)=>{
@@ -69,9 +71,10 @@ export class LoginComponent implements OnInit {
 
     if(res.codigo == '100'){
       this.router.navigate(['Client/home']);
+      Swal.fire('Inicio de Sesión con Google', res.mensaje, 'success')
     }else{
       this.router.navigate(['./login']);
-      alert(res.mensaje)
+      Swal.fire(res.mensaje);
     }
 
     });

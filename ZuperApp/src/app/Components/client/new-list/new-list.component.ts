@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
+import  Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-new-list',
@@ -52,18 +53,33 @@ export class NewListComponent implements OnInit {
         console.log(formData)
         this.APIService.crearLista(formData).subscribe((data)=>{
 
-      ///Accion que muestra que fue enviado correctamente
-        //console.log(data)
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          })
         this.router.navigate(['/Edit-List']);
         return;
 
         },
         (error: any) => {
-             alert(error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Oops...Error al crear Lista!',
+            text: error,
+            footer: '<a href>Why do I have this issue?</a>'
+          })
             return;
         });
     }else{
-      alert('Error al crear Lista, por favor intentar nuevamente.');
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...Error al crear Lista!',
+        text: 'Por favor intentar nuevamente.',
+        footer: '<a href>Why do I have this issue?</a>'
+      })
     }
   }
 

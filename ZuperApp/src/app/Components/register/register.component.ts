@@ -2,6 +2,7 @@ import { CreateUser } from '../services/CreateUser/create-user.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import  Swal  from 'sweetalert2';
 
 
 @Component({
@@ -57,8 +58,7 @@ export class RegisterComponent implements OnInit {
      console.log(this.form_register.value)
      this.APIService.crearUsuario(this.form_register.value).subscribe((data)=>{
 
-       ///Accion que muestra que fue enviado correctamente
-     //alert('Solicitud enviada correctamente');
+      Swal.fire(data.mensaje+'!', 'Por favor ingresar, nombre de usuario y contraseña.', 'success')
      this.route.navigate(['/login']);
      return;
 

@@ -2,6 +2,7 @@ import { UpdatePassword } from './../services/UpdatePassword/update-password.ser
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
+import  Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -37,12 +38,16 @@ export class ForgotPasswordComponent implements OnInit {
       console.log(res)
       if(res.codigo == '201'){
         this.route.navigate(['./login']);
-        alert(res.mensaje)
+        Swal.fire('Envío de recuperacion de correo exitoso!', res.mensaje, 'success')
       }else{
 
-        alert(res.mensaje)
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...envío de recuperacion de correo fallido!',
+          text: res.mensaje,
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       }
-
       });
   }
 }

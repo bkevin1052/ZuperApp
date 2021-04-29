@@ -7,6 +7,8 @@ import { PerfilUsuario } from "../../models/perfil.usuario";
 import { PerfilService } from '../../services/Perfil/perfil.service';
 import { AuthService } from './../../services/auth/auth.service';
 
+import  Swal  from 'sweetalert2';
+
 @Component({
   selector: 'app-edit-profile',
   templateUrl: './edit-profile.component.html',
@@ -57,10 +59,14 @@ export class EditProfileComponent implements OnInit {
         formData.append('phone',this.form_editar.controls.phone.value);
 
         this.api2.EditProfile(formData).subscribe((data)=>{
-          //console.log(data)
           this.router.navigate(['home']);
-          return;
-
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: data.mensaje,
+            showConfirmButton: false,
+            timer: 1500
+          })
           },
           (error: any) => {
               alert(error);
@@ -68,7 +74,12 @@ export class EditProfileComponent implements OnInit {
           });
       }else{
 
-        alert('Error en la actualizacion');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...Error en la actualizacion!',
+          text: 'Por favor intentar nuevamente.',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       }
   }
 
