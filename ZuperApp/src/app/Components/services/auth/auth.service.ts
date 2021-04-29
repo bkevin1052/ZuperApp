@@ -8,13 +8,14 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { Router } from '@angular/router'
 import { environment } from 'src/environments/environment';
 import jwt_decode from "jwt-decode";
+import { SocialAuthService, SocialUser } from 'angularx-social-login';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private httpClient: HttpClient, private _router: Router) { }
+  constructor(private httpClient: HttpClient, private _router: Router, private authServiceGoogle: SocialAuthService) { }
 
   decoded!:tokenInfo;
 
@@ -35,6 +36,24 @@ export class AuthService {
       })
 
     );
+  }
+
+  signInGoogle(user: SocialUser): Observable<JwtResponse>{
+    return this.httpClient.post(`${environment.server}/api/loginGoogle`, user).pipe(
+
+      tap(async (res: any) => {
+        if (res) {
+          localStorage.setItem("username", res.username);
+          sessionStorage.setItem("token",res.token)
+          //console.log(localStorage.getItem('username'));
+          //console.log(sessionStorage.getItem('token'));
+          this.authSubject.next(true);
+          return res;
+        }
+      })
+
+    );
+
   }
 
   checkLogInStatus() : boolean{
@@ -68,10 +87,14 @@ export class AuthService {
     return this.authSubject.asObservable();
   }
 
-  logout() {
+  LogOut() {
     localStorage.removeItem('username');
     sessionStorage.removeItem('token');
     this._router.navigate(['/login'])
+  }
+
+  SignOut():any{
+    this.authServiceGoogle.signOut();
   }
 
   public get logIn(): boolean {

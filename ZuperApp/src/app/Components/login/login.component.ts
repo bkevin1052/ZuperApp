@@ -3,6 +3,9 @@ import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from "../services/auth/auth.service";
 import { User } from "../models/User";
+import { SocialAuthService } from 'angularx-social-login';
+import { SocialUser,GoogleLoginProvider,FacebookLoginProvider } from 'angularx-social-login';
+
 
 @Component({
   selector: 'app-login',
@@ -12,11 +15,13 @@ import { User } from "../models/User";
 export class LoginComponent implements OnInit {
 
   form_login:FormGroup;
-  user!: User;
+  user! : User;
+  userGoogle! : SocialUser;
 
 
   constructor(
     private authService: AuthService,
+    private authServiceGoogle: SocialAuthService,
     private fb: FormBuilder,
     private router: Router
   ) {
@@ -49,6 +54,27 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit():void {
+
+  }
+
+  SignInWithGoogle():any{
+    this.authServiceGoogle.signIn(GoogleLoginProvider.PROVIDER_ID);
+    this.authServiceGoogle.authState.subscribe((userGoogle)=>{
+      this.userGoogle = userGoogle;
+    })
+
+
+    console.log(this.userGoogle)
+    this.authService.signInGoogle(this.userGoogle).subscribe( (res)=>{
+
+    if(res.codigo == '100'){
+      this.router.navigate(['Client/home']);
+    }else{
+      this.router.navigate(['./login']);
+      alert(res.mensaje)
+    }
+
+    });
 
   }
 }

@@ -14,8 +14,9 @@
               <button id="bLogIn" class="btn btn-warning btn-lg btn-block" (click)="login()">Log In</button>
               <hr>
               <div class="center">
-              <button  type="submit" id="bGoogle"  class="btn btn-danger btn-lg mr-1">
-                <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/google.png" style="width: 30px;"/></button>
+              <button  class="btn btn-danger btn-lg mr-1" (click)="SignInWithGoogle()">
+                <img src="https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/google.png" style="width: 30px;"/>
+              </button>
               </div>
               <hr>
               <a routerLink="/register">Create an Account!</a>
