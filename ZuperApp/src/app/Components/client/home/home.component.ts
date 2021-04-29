@@ -1,3 +1,4 @@
+import { AuthService } from './../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
@@ -9,11 +10,12 @@ import { Router } from '@angular/router';
 export class HomeComponent implements OnInit {
   servicios = [];
   constructor(
-
+    private authService: AuthService,
     private router: Router
 
   ) { }
 
   ngOnInit() {
+    this.authService.checkLogInStatus();
   }
 }

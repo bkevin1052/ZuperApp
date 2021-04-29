@@ -12,7 +12,7 @@ import { User } from "../models/User";
 export class LoginComponent implements OnInit {
 
   form_login:FormGroup;
-  user: User;
+  user!: User;
 
 
   constructor(
@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
     var aux = this.form_login.value as User;
     this.user = aux;
     this.authService.signIn(this.form_login.value).subscribe( (res)=>{
-    console.log(res)
+    //console.log(res)
     if(res.codigo == '100'){
       this.router.navigate(['Client/home']);
     }else{

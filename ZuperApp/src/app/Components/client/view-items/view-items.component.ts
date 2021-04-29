@@ -3,6 +3,7 @@ import { List } from './../../models/List';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-edit-list',
@@ -19,7 +20,8 @@ export class ViewItemsComponent implements OnInit {
 
     private fb:FormBuilder,
     private router: ActivatedRoute,
-    private api:ViewItems
+    private api:ViewItems,
+    private authService: AuthService
 
   ) {
 
@@ -30,6 +32,7 @@ export class ViewItemsComponent implements OnInit {
     })
 
     this.getItems();
+    this.authService.checkLogInStatus();
 
    }
 
@@ -42,7 +45,7 @@ export class ViewItemsComponent implements OnInit {
     var x = this.router.snapshot.paramMap.get('id');
     this.api.getItems({_id:x}).subscribe((data)=>{
       this.cookie = data;
-      console.log(this.cookie);
+      //console.log(this.cookie);
      })
  }
 

@@ -2,6 +2,7 @@ import { UpdateProfilePassword } from './../../services/UpdateProfilePassword/up
 import { Component, OnInit } from '@angular/core';
 import { FormsModule, FormBuilder, FormGroup, Validators} from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-change-password',
@@ -15,7 +16,10 @@ export class ChangePasswordComponent implements OnInit {
   imagenresource = 'https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png';
 
   constructor(private fb:FormBuilder,
-    private APIService:UpdateProfilePassword,private route:Router) {
+    private APIService:UpdateProfilePassword,private route:Router,private authService: AuthService) {
+
+      this.authService.checkLogInStatus();
+
 
   }
 
@@ -38,15 +42,15 @@ export class ChangePasswordComponent implements OnInit {
       this.APIService.ActualizarProfilePassword(formData).subscribe( (res)=>{
         console.log(res)
         if(res.codigo == '201'){
-          this.route.navigate(['./login']);
           alert(res.mensaje)
+          this.route.navigate(['./login']);
         }else{
 
           alert(res.mensaje)
+          this.route.navigateByUrl('home');
         }
 
         });
-        this.route.navigateByUrl('home');
 
     }else{
 

@@ -2,6 +2,7 @@ import { CreateList } from './../../services/NewList/new-list.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-new-list',
@@ -17,7 +18,8 @@ export class NewListComponent implements OnInit {
 
     private fb:FormBuilder,
     private router: Router,
-    private APIService:CreateList
+    private APIService:CreateList,
+    private authService: AuthService
   ) {
 
     this.form_nueva = this.fb.group({
@@ -28,6 +30,8 @@ export class NewListComponent implements OnInit {
         Validators.required
       ]]
     })
+
+    this.authService.checkLogInStatus();
 
    }
 
@@ -49,7 +53,7 @@ export class NewListComponent implements OnInit {
         this.APIService.crearLista(formData).subscribe((data)=>{
 
       ///Accion que muestra que fue enviado correctamente
-        console.log(data)
+        //console.log(data)
         this.router.navigate(['/Edit-List']);
         return;
 

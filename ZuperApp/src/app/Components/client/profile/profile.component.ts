@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { PerfilUsuario } from "../../models/perfil.usuario";
 import { PerfilService } from '../../services/Perfil/perfil.service';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-profile',
@@ -14,14 +15,15 @@ export class ProfileComponent implements OnInit {
    imagenresource = 'https://raw.githubusercontent.com/bkevin1052/ZuperApp/master/ZuperApp/icons/ZuperApp.png';
 
    cookie!: PerfilUsuario;
-   constructor(private api:PerfilService){
+   constructor(private api:PerfilService,private authService: AuthService){
      this.getPerfil();
+     this.authService.checkLogInStatus();
   }
 
   getPerfil(){
     this.api.GetProfile({username:localStorage.getItem('username')}).subscribe((data)=>{
       this.cookie = data
-      console.log(data);
+      //console.log(data);
      })
  }
 

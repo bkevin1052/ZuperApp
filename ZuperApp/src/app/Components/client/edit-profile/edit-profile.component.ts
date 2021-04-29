@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { faCookie } from '@fortawesome/free-solid-svg-icons';
 import { PerfilUsuario } from "../../models/perfil.usuario";
 import { PerfilService } from '../../services/Perfil/perfil.service';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-edit-profile',
@@ -25,7 +26,7 @@ export class EditProfileComponent implements OnInit {
 
   cookie!: PerfilUsuario;
 
-  constructor(private fb:FormBuilder,private router:Router,private api:PerfilService, private api2:EditProfile) {
+  constructor(private fb:FormBuilder,private router:Router,private api:PerfilService, private api2:EditProfile,private authService: AuthService,) {
 
     this.form_editar = this.fb.group({
       name:['',[Validators.required]],
@@ -35,6 +36,8 @@ export class EditProfileComponent implements OnInit {
     })
 
     this.getPerfil();
+
+    this.authService.checkLogInStatus();
 
   }
 
@@ -54,7 +57,7 @@ export class EditProfileComponent implements OnInit {
         formData.append('phone',this.form_editar.controls.phone.value);
 
         this.api2.EditProfile(formData).subscribe((data)=>{
-          console.log(data)
+          //console.log(data)
           this.router.navigate(['home']);
           return;
 
@@ -72,7 +75,7 @@ export class EditProfileComponent implements OnInit {
   getPerfil(){
     this.api.GetProfile({username:localStorage.getItem('username')}).subscribe((data)=>{
       this.cookie = data
-      console.log(data);
+      //console.log(data);
      })
  }
 

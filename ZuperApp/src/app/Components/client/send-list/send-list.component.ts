@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-send-list',
@@ -14,9 +15,13 @@ export class SendListComponent implements OnInit {
   constructor(
 
     private fb:FormBuilder,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
 
-  ) { }
+  ) {
+
+    this.authService.checkLogInStatus();
+  }
 
 
   SendList(){

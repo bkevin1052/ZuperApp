@@ -3,6 +3,7 @@ import { EditList } from './../../services/EditList/edit-list.service';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
   selector: 'app-edit-list',
@@ -19,7 +20,8 @@ export class EditListComponent implements OnInit {
 
     private fb:FormBuilder,
     private router: Router,
-    private api:EditList
+    private api:EditList,
+    private authService: AuthService
 
   ) {
 
@@ -30,6 +32,7 @@ export class EditListComponent implements OnInit {
     })
 
     this.getListas();
+    this.authService.checkLogInStatus();
 
    }
 
