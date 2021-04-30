@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 
-  server: "http://localhost:3000"
-  //server: "https://backend-zuperapp.herokuapp.com"
+  //server: "http://localhost:3000"
+  server: "https://backend-zuperapp.herokuapp.com"
 };
 
 
