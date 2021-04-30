@@ -47,8 +47,13 @@ export class LoginComponent implements OnInit {
     if(res.codigo == '100'){
       this.router.navigate(['Client/home']);
     }else{
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: res.mensaje,
+        footer: '<a href>Why do I have this issue?</a>'
+      })
       this.router.navigate(['./login']);
-      alert(res.mensaje)
     }
 
     });
@@ -73,8 +78,8 @@ export class LoginComponent implements OnInit {
       this.router.navigate(['Client/home']);
       Swal.fire('Inicio de Sesión con Google', res.mensaje, 'success')
     }else{
-      this.router.navigate(['./login']);
       Swal.fire(res.mensaje);
+      this.router.navigate(['./login']);
     }
 
     });
