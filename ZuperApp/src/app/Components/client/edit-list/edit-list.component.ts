@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
+import  Swal  from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-list',
@@ -42,14 +43,22 @@ export class EditListComponent implements OnInit {
     console.log(id)
     this.api.eliminarLista({_id:id}).subscribe((data)=>{
 
-      if(data.codigo = '100'){
-
-        alert(data.mensaje);
-        //this.router.navigate(['Edit-List']);
+      if(data.codigo == '100'){
+        Swal.fire({
+          position: 'top-end',
+          icon: 'success',
+          title: data.mensaje,
+          showConfirmButton: false,
+          timer: 1500
+        })
         location.reload();
       }else{
-
-        alert('Error al eliminar lista, por favor intentar nuevamente');
+        Swal.fire({
+          icon: 'error',
+          title: 'Oops...Error en la actualizacion!',
+          text: 'Por favor intentar nuevamente.',
+          footer: '<a href>Why do I have this issue?</a>'
+        })
       }
      })
   }
