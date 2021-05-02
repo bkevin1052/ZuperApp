@@ -1,5 +1,5 @@
 import { ViewItems } from './../../services/ViewItems/view-items.service';
-import { List } from './../../models/List';
+import { Product } from './../../models/Product';
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
 import { Router,ActivatedRoute } from '@angular/router';
@@ -14,7 +14,9 @@ export class ViewItemsComponent implements OnInit {
 
   form_edit:FormGroup;
 
-  cookie!:List[];
+  cookie!:Product[];
+
+  x!:any;
 
   constructor(
 
@@ -42,10 +44,9 @@ export class ViewItemsComponent implements OnInit {
   }
 
   getItems(){
-    var x = this.router.snapshot.paramMap.get('id');
-    this.api.getItems({_id:x}).subscribe((data)=>{
-      this.cookie = data;
-      //console.log(this.cookie);
+    this.x = this.router.snapshot.paramMap.get('id');
+    this.api.getItems({_id:this.x}).subscribe((data)=>{
+      this.cookie = data.products;
      })
  }
 

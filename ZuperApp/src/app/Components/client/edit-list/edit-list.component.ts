@@ -57,7 +57,7 @@ export class EditListComponent implements OnInit {
   getListas(){
     this.api.getListas({username:localStorage.getItem('username')}).subscribe((data)=>{
       this.cookie = data;
-      console.log(this.cookie);
+      //console.log(this.cookie);
      })
  }
 

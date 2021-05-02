@@ -1,3 +1,5 @@
+import { ViewItemsComponent } from './view-items/view-items.component';
+import { AddItemsComponent } from './add-items/add-items.component';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
@@ -27,7 +29,9 @@ import { ServicesComponent } from './services/services.component';
     NewListComponent,
     EditListComponent,
     ListMenuComponent,
-    ServicesComponent
+    ServicesComponent,
+    AddItemsComponent,
+    ViewItemsComponent
   ]
 })
 export class ClientModule { }
