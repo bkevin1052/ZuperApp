@@ -41,7 +41,7 @@ export class SendListComponent implements OnInit {
     formData.append('id',this.form_send.controls.list.value._id);
     formData.append('email',this.form_send.controls.email.value);
 
-    console.log(formData)
+    //console.log(formData)
 
     this.api.SendLista(formData).subscribe((data)=>{
 
