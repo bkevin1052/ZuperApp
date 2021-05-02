@@ -51,7 +51,7 @@ export class EditListComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-        location.reload();
+        this.router.navigate(['Client/Edit-List']);
       }else{
         Swal.fire({
           icon: 'error',
