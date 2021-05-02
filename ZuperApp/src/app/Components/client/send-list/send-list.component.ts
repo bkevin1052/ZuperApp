@@ -37,7 +37,13 @@ export class SendListComponent implements OnInit {
 
   SendList(){
 
-    this.api.SendLista(this.form_send).subscribe((data)=>{
+    let formData = new FormData();
+    formData.append('id',this.form_send.controls.list.value._id);
+    formData.append('email',this.form_send.controls.email.value);
+
+    console.log(formData)
+
+    this.api.SendLista(formData).subscribe((data)=>{
 
       if(data.codigo == '100'){
         Swal.fire({
@@ -50,7 +56,7 @@ export class SendListComponent implements OnInit {
       }else{
         Swal.fire({
           icon: 'error',
-          title: 'Oops...Error en la actualizacion!',
+          title: 'Oops...Error en el envio de la lista!',
           text: 'Por favor intentar nuevamente.',
           footer: '<a href>Why do I have this issue?</a>'
         })
