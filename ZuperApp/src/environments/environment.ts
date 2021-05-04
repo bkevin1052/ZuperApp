@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
   //server: "http://localhost:3000"
-  server: "http://localhost:2021"
+  server: "http://ec2co-ecsel-1owm1or3fh2mb-1448212057.us-east-1.elb.amazonaws.com:2021"
   //server: "https://backend-zuperapp.herokuapp.com"
 };
 
