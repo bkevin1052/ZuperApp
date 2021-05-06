@@ -15,21 +15,22 @@ import { ServicesComponent } from './services/services.component';
 import { ConfigurationComponent } from './configuration/configuration.component';
 
 const routes: Routes = [
-  { path: '', component: LayoutComponent,
-  children: [
-    { path: 'home', component: HomeComponent},
-    { path: 'Profile', component: ProfileComponent},
-    { path: 'Edit-Profile', component: EditProfileComponent},
-    { path: 'Change-Password', component: ChangePasswordComponent},
-    { path: 'List-Menu', component: ListMenuComponent},
-    { path: 'Edit-List', component: EditListComponent},
-    { path: 'New-List', component: NewListComponent},
-    { path: 'Send-List', component: SendListComponent},
-    { path: 'Services', component: ServicesComponent},
-    { path: 'VerItems/:id', component: ViewItemsComponent},
-    { path: 'AddItems/:id', component: AddItemsComponent},
-    { path: 'Configuration', component: ConfigurationComponent},
-  ]
+  {
+    path: '', component: LayoutComponent,
+    children: [
+      { path: 'home', component: HomeComponent },
+      { path: 'Profile', component: ProfileComponent },
+      { path: 'Edit-Profile', component: EditProfileComponent },
+      { path: 'Change-Password', component: ChangePasswordComponent },
+      { path: 'List-Menu', component: ListMenuComponent },
+      { path: 'Edit-List', component: EditListComponent },
+      { path: 'New-List', component: NewListComponent },
+      { path: 'Send-List', component: SendListComponent },
+      { path: 'Services', component: ServicesComponent },
+      { path: 'VerItems/:id', component: ViewItemsComponent },
+      { path: 'AddItems/:id', component: AddItemsComponent },
+      { path: 'Configuration', component: ConfigurationComponent },
+    ]
   }
 ];
 

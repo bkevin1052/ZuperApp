@@ -1,10 +1,10 @@
 import { AddItems } from './../../services/AddItems/add-items.service';
 import { Product } from './../../models/Product';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import { Router,ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
-import  Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-edit-list',
@@ -13,16 +13,16 @@ import  Swal  from 'sweetalert2';
 })
 export class AddItemsComponent implements OnInit {
 
-  form_edit:FormGroup;
+  form_edit: FormGroup;
 
-  cookie!:Product[];
-  x:any;
+  cookie!: Product[];
+  x: any;
 
   constructor(
 
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private router: ActivatedRoute,
-    private api:AddItems,
+    private api: AddItems,
     private authService: AuthService
 
   ) {
@@ -36,21 +36,21 @@ export class AddItemsComponent implements OnInit {
     this.getProducts();
     this.authService.checkLogInStatus();
 
-   }
+  }
 
 
 
-  AddProduct(product:Product){
+  AddProduct(product: Product) {
 
     let formData = new FormData();
     this.x = this.router.snapshot.paramMap.get('id');
-    formData.append('name',product.name)
-    formData.append('description',product.description);
-    formData.append('price',product.price.toString());
-    formData.append('id',this.x);
+    formData.append('name', product.name)
+    formData.append('description', product.description);
+    formData.append('price', product.price.toString());
+    formData.append('id', this.x);
 
-    this.api.AddItems(formData).subscribe((data)=>{
-      if(data.codigo == '100'){
+    this.api.AddItems(formData).subscribe((data) => {
+      if (data.codigo == '100') {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -58,7 +58,7 @@ export class AddItemsComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-      }else{
+      } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...Error en la actualizacion!',
@@ -67,14 +67,14 @@ export class AddItemsComponent implements OnInit {
         })
       }
 
-     })
+    })
   }
 
-  getProducts(){
-    this.api.getProducts().subscribe((data)=>{
+  getProducts() {
+    this.api.getProducts().subscribe((data) => {
       this.cookie = data;
-     })
- }
+    })
+  }
 
   ngOnInit() {
   }

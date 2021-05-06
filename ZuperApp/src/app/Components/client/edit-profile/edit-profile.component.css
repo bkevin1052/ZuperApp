@@ -1,15 +1,15 @@
-.imagenperfil{
-    width:150px;
-    height:150px;
-    border-radius:125px;
-    border:2px solid rgb(61, 181, 236);
-    float: inherit;
+.imagenperfil {
+  width: 150px;
+  height: 150px;
+  border-radius: 125px;
+  border: 2px solid rgb(61, 181, 236);
+  float: inherit;
 }
 .fileInput {
-    width: 0.1px;
-    height: 0.1px;
-    opacity: 0;
-    overflow: hidden;
-    position: absolute;
-    z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
 }

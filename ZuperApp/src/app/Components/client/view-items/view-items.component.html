@@ -3,30 +3,30 @@
     <i class="fa fa-plus"></i>
   </a>
   <div class="row">
-      <div class="col">
-          <h1 class="titulo text-center">Items</h1>
-          <table class="table table-striped tabla">
-              <!--Encabezados de la tabla-->
-              <thead class="thead-zuper">
-                  <tr>
+    <div class="col">
+      <h1 class="titulo text-center">Items</h1>
+      <table class="table table-striped tabla">
+        <!--Encabezados de la tabla-->
+        <thead class="thead-zuper">
+          <tr>
 
-                      <th class=" text-center" scope="col">Name</th>
+            <th class=" text-center" scope="col">Name</th>
 
-                      <th class=" text-center" scope="col">Description</th>
+            <th class=" text-center" scope="col">Description</th>
 
-                      <th class=" text-center" scope="col">Price</th>
+            <th class=" text-center" scope="col">Price</th>
 
-                  </tr>
-              </thead>
+          </tr>
+        </thead>
 
-              <!--CONTENIDO-->
-              <tr class="tr-zuper" *ngFor="let cook of cookie">
+        <!--CONTENIDO-->
+        <tr class="tr-zuper" *ngFor="let cook of cookie">
 
-                  <td class="text-center">{{cook.name}}</td>
-                  <td class="text-center">{{cook.description}}</td>
-                  <td class="text-center">{{cook.price}}</td>
-              </tr>
-          </table>
-      </div>
+          <td class="text-center">{{cook.name}}</td>
+          <td class="text-center">{{cook.description}}</td>
+          <td class="text-center">{{cook.price}}</td>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

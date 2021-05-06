@@ -12,7 +12,7 @@ export class AddItems {
   constructor(private httpClient: HttpClient) { }
 
   AddItems(formulario: any): Observable<any> {
-    return this.httpClient.post(`${environment.server}/api/lists/additems`,formulario).pipe(catchError(this.clientError));
+    return this.httpClient.post(`${environment.server}/api/lists/additems`, formulario).pipe(catchError(this.clientError));
   }
 
   getProducts(): Observable<any> {

@@ -1,8 +1,8 @@
 import { UpdatePassword } from './../services/UpdatePassword/update-password.service';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import  Swal  from 'sweetalert2';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-forgotpassword',
@@ -16,30 +16,30 @@ export class ForgotPasswordComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private APIService:UpdatePassword,private route:Router) {
+    private APIService: UpdatePassword, private route: Router) {
 
-      this.form_forgot = this.fb.group({
-        email: ['', [
-          Validators.required,
-          Validators.pattern("[^ @]*@[^ @]*")
-        ]]
-      })
+    this.form_forgot = this.fb.group({
+      email: ['', [
+        Validators.required,
+        Validators.pattern("[^ @]*@[^ @]*")
+      ]]
+    })
 
-     }
+  }
 
   ngOnInit() {
 
 
   }
 
-  resetPassword(){
+  resetPassword() {
 
-    this.APIService.ActualizarPassword(this.form_forgot.value).subscribe( (res)=>{
+    this.APIService.ActualizarPassword(this.form_forgot.value).subscribe((res) => {
       console.log(res)
-      if(res.codigo == '201'){
+      if (res.codigo == '201') {
         this.route.navigate(['./login']);
         Swal.fire('Envío de recuperacion de correo exitoso!', res.mensaje, 'success')
-      }else{
+      } else {
 
         Swal.fire({
           icon: 'error',
@@ -48,6 +48,6 @@ export class ForgotPasswordComponent implements OnInit {
           footer: '<a href>Why do I have this issue?</a>'
         })
       }
-      });
+    });
   }
 }

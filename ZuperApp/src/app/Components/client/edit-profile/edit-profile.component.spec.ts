@@ -11,18 +11,18 @@ describe('EditProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ EditProfileComponent],
-      imports:[FormsModule,ReactiveFormsModule,RouterTestingModule,HttpClientTestingModule],
-      providers:[FormBuilder]
+      declarations: [EditProfileComponent],
+      imports: [FormsModule, ReactiveFormsModule, RouterTestingModule, HttpClientTestingModule],
+      providers: [FormBuilder]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
- /* beforeEach(() => {
-    fixture = TestBed.createComponent(EditarPerfilComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });*/
+  /* beforeEach(() => {
+     fixture = TestBed.createComponent(EditarPerfilComponent);
+     component = fixture.componentInstance;
+     fixture.detectChanges();
+   });*/
 
   it('should create', () => {
     expect(null).toBeNull();

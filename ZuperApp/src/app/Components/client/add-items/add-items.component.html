@@ -1,39 +1,39 @@
 <div class="container">
   <div class="row">
-      <div class="col">
-          <h1 class="titulo text-center">Product List</h1>
-          <table class="table table-striped tabla">
-              <!--Encabezados de la tabla-->
-              <thead class="thead-zuper">
-                  <tr>
+    <div class="col">
+      <h1 class="titulo text-center">Product List</h1>
+      <table class="table table-striped tabla">
+        <!--Encabezados de la tabla-->
+        <thead class="thead-zuper">
+          <tr>
 
-                      <th class=" text-center" scope="col">Name</th>
+            <th class=" text-center" scope="col">Name</th>
 
-                      <th class=" text-center" scope="col">Description</th>
+            <th class=" text-center" scope="col">Description</th>
 
-                      <th class=" text-center" scope="col">Price</th>
-                      <th class=" text-center" scope="col"></th>
+            <th class=" text-center" scope="col">Price</th>
+            <th class=" text-center" scope="col"></th>
 
-                  </tr>
-              </thead>
+          </tr>
+        </thead>
 
-              <!--CONTENIDO-->
-              <tr class="tr-zuper" *ngFor="let cook of cookie">
+        <!--CONTENIDO-->
+        <tr class="tr-zuper" *ngFor="let cook of cookie">
 
-                  <td class="text-center">{{cook.name}}</td>
-                  <td class="text-center">{{cook.description}}</td>
-                  <td class="text-center">{{cook.price}}</td>
-                  <td class="text-center">
+          <td class="text-center">{{cook.name}}</td>
+          <td class="text-center">{{cook.description}}</td>
+          <td class="text-center">{{cook.price}}</td>
+          <td class="text-center">
 
-                    <button  class="btn btn-warning btn-xs" (click)="AddProduct(cook)" >
+            <button class="btn btn-warning btn-xs" (click)="AddProduct(cook)">
 
-                      <i class="fa fa-plus"></i>
+              <i class="fa fa-plus"></i>
 
-                    </button>
-                   </td>
+            </button>
+          </td>
 
-              </tr>
-          </table>
-      </div>
+        </tr>
+      </table>
+    </div>
   </div>
 </div>

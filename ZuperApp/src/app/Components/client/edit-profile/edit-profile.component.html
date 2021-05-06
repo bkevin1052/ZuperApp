@@ -1,37 +1,37 @@
 <img src="{{imagenresource}}" title="Foto de Perfil" class="imagenperfil" />
 <div class="profile-page pb-5">
-    <form [formGroup]="form_editar" style="padding-top: 5%;">
-        <div class="container">
-            <h1 class="titulo">{{cookie.name}} {{cookie.surname}}</h1>
-            <div class="row">
-                <div class="form-group col-md-6">
-                    <label>Name:</label>
-                    <input type="text" formControlName="name" name="Nombre" class="form-control" value="">
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Surname:</label>
-                    <input type="text" formControlName="surname" name="Apellido" class="form-control" value="">
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Email:</label>
-                    <input type="text" formControlName="email" name="Correo" class="form-control" value="">
-                </div>
-                <div class="form-group col-md-6">
-                    <label>Phone:</label>
-                    <input type="text" formControlName="phone" name="Telefono" class="form-control" value="">
-                </div>
-            </div>
-            <div class="text-center">
-              <a routerLink="/Client/home">
-                <button type="button" class="btn btn-primary mr-3" (click)="EditarPerfil()">Confirm</button>
-              </a>
-              <a routerLink="/Client/Change-Password">
-                <button class="btn btn-danger">
-                    Change Password
-                </button>
-              </a>
-            </div>
-
+  <form [formGroup]="form_editar" style="padding-top: 5%;">
+    <div class="container">
+      <h1 class="titulo">{{cookie.name}} {{cookie.surname}}</h1>
+      <div class="row">
+        <div class="form-group col-md-6">
+          <label>Name:</label>
+          <input type="text" formControlName="name" name="Nombre" class="form-control" value="">
         </div>
-    </form>
+        <div class="form-group col-md-6">
+          <label>Surname:</label>
+          <input type="text" formControlName="surname" name="Apellido" class="form-control" value="">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Email:</label>
+          <input type="text" formControlName="email" name="Correo" class="form-control" value="">
+        </div>
+        <div class="form-group col-md-6">
+          <label>Phone:</label>
+          <input type="text" formControlName="phone" name="Telefono" class="form-control" value="">
+        </div>
+      </div>
+      <div class="text-center">
+        <a routerLink="/Client/home">
+          <button type="button" class="btn btn-primary mr-3" (click)="EditarPerfil()">Confirm</button>
+        </a>
+        <a routerLink="/Client/Change-Password">
+          <button class="btn btn-danger">
+            Change Password
+          </button>
+        </a>
+      </div>
+
+    </div>
+  </form>
 </div>

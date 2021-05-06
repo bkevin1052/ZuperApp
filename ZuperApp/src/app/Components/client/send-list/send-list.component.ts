@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { List } from './../../models/List';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { SendList } from './../../services/SendList/send-list.service';
 import { Router } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
-import  Swal  from 'sweetalert2';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-send-list',
@@ -13,21 +13,21 @@ import  Swal  from 'sweetalert2';
 })
 export class SendListComponent implements OnInit {
 
-  form_send!:FormGroup;
-  cookie!:List[];
+  form_send!: FormGroup;
+  cookie!: List[];
 
   constructor(
 
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private router: Router,
     private authService: AuthService,
-    private api:SendList
+    private api: SendList
 
   ) {
 
     this.form_send = this.fb.group({
       list: ['', [Validators.required]],
-      email:['',[Validators.required]]
+      email: ['', [Validators.required]]
     })
 
     this.getListas();
@@ -35,17 +35,17 @@ export class SendListComponent implements OnInit {
   }
 
 
-  SendList(){
+  SendList() {
 
     let formData = new FormData();
-    formData.append('id',this.form_send.controls.list.value._id);
-    formData.append('email',this.form_send.controls.email.value);
+    formData.append('id', this.form_send.controls.list.value._id);
+    formData.append('email', this.form_send.controls.email.value);
 
     //console.log(formData)
 
-    this.api.SendLista(formData).subscribe((data)=>{
+    this.api.SendLista(formData).subscribe((data) => {
 
-      if(data.codigo == '100'){
+      if (data.codigo == '100') {
         Swal.fire({
           position: 'top-end',
           icon: 'success',
@@ -53,7 +53,7 @@ export class SendListComponent implements OnInit {
           showConfirmButton: false,
           timer: 1500
         })
-      }else{
+      } else {
         Swal.fire({
           icon: 'error',
           title: 'Oops...Error en el envio de la lista!',
@@ -62,18 +62,18 @@ export class SendListComponent implements OnInit {
         })
       }
 
-     })
+    })
 
-     //this.router.navigate(['/home']);
+    //this.router.navigate(['/home']);
   }
 
   ngOnInit() {
   }
 
-  getListas(){
-    this.api.getListas({username:localStorage.getItem('username')}).subscribe((data)=>{
+  getListas() {
+    this.api.getListas({ username: localStorage.getItem('username') }).subscribe((data) => {
       this.cookie = data;
       //console.log(this.cookie);
-     })
-    }
+    })
+  }
 }

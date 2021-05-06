@@ -12,10 +12,10 @@ describe('ProfileComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ HttpClientTestingModule],
-      declarations: [ ProfileComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ProfileComponent]
     })
-    .compileComponents();
+      .compileComponents();
     httpMock = TestBed.get(HttpTestingController);
     httpClient = TestBed.inject(HttpClient);
   }));

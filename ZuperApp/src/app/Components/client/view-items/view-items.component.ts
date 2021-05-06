@@ -1,8 +1,8 @@
 import { ViewItems } from './../../services/ViewItems/view-items.service';
 import { Product } from './../../models/Product';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators  } from '@angular/forms';
-import { Router,ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Router, ActivatedRoute } from '@angular/router';
 import { AuthService } from './../../services/auth/auth.service';
 
 @Component({
@@ -12,17 +12,17 @@ import { AuthService } from './../../services/auth/auth.service';
 })
 export class ViewItemsComponent implements OnInit {
 
-  form_edit:FormGroup;
+  form_edit: FormGroup;
 
-  cookie!:Product[];
+  cookie!: Product[];
 
-  x!:any;
+  x!: any;
 
   constructor(
 
-    private fb:FormBuilder,
+    private fb: FormBuilder,
     private router: ActivatedRoute,
-    private api:ViewItems,
+    private api: ViewItems,
     private authService: AuthService
 
   ) {
@@ -36,19 +36,19 @@ export class ViewItemsComponent implements OnInit {
     this.getItems();
     this.authService.checkLogInStatus();
 
-   }
-
-
-
-  EditList(){
   }
 
-  getItems(){
+
+
+  EditList() {
+  }
+
+  getItems() {
     this.x = this.router.snapshot.paramMap.get('id');
-    this.api.getItems({_id:this.x}).subscribe((data)=>{
+    this.api.getItems({ _id: this.x }).subscribe((data) => {
       this.cookie = data.products;
-     })
- }
+    })
+  }
 
   ngOnInit() {
   }

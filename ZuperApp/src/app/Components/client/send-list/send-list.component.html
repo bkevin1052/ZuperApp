@@ -1,14 +1,14 @@
 <form [formGroup]="form_send" class="form-send" (ngSubmit)="SendList()" id="form_send">
-<div class="form-group">
-  <h1> Send List:</h1>
-  <select class="form-control form-control-lg" formControlName="list">
-    <option *ngFor="let cook of cookie" [ngValue]="cook">{{cook.namelist}}</option>
-  </select>
-</div>
-<h1> Send To:</h1>
-<div class="form-group">
-  <input type="text" formControlName="email" name="Correo" class="form-control" value="">
-</div>
-<br>
-<button type="submit" class="btn btn-lg btn-success" id="bSend">Send List</button>
+  <div class="form-group">
+    <h1> Send List:</h1>
+    <select class="form-control form-control-lg" formControlName="list">
+      <option *ngFor="let cook of cookie" [ngValue]="cook">{{cook.namelist}}</option>
+    </select>
+  </div>
+  <h1> Send To:</h1>
+  <div class="form-group">
+    <input type="text" formControlName="email" name="Correo" class="form-control" value="">
+  </div>
+  <br>
+  <button type="submit" class="btn btn-lg btn-success" id="bSend">Send List</button>
 </form>

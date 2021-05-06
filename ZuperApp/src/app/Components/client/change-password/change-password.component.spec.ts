@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientModule } from '@angular/common/http';
 import { ChangePasswordComponent } from './change-password.component';
-import { FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 
@@ -11,17 +11,17 @@ describe('ChangePasswordComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports:[
-          FormsModule,
-          RouterTestingModule,
-          BrowserModule,
-          ReactiveFormsModule,
-          HttpClientModule
+      imports: [
+        FormsModule,
+        RouterTestingModule,
+        BrowserModule,
+        ReactiveFormsModule,
+        HttpClientModule
       ],
-      declarations: [ ChangePasswordComponent ],
-      providers:[FormBuilder]
+      declarations: [ChangePasswordComponent],
+      providers: [FormBuilder]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
