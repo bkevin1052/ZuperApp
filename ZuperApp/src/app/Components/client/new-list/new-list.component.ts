@@ -38,8 +38,8 @@ export class NewListComponent implements OnInit {
 
   CrearLista() {
 
-    console.log(this.form_nueva.controls.name.value);
-    console.log(this.form_nueva.controls.description.value);
+    //console.log(this.form_nueva.controls.name.value);
+    //console.log(this.form_nueva.controls.description.value);
 
 
     let formData = new FormData();
